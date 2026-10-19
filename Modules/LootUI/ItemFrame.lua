@@ -261,6 +261,8 @@ function ItemFrameMixin:SetData(data)
 		self:SetCurrency(data);
 	elseif data.slotType == Def.SLOT_TYPE_REP then
 		self:SetReputation(data);
+	elseif data.slotType == Def.SLOT_TYPE_SKILL then
+		self:SetSkill(data);
 	elseif data.slotType == Def.SLOT_TYPE_MONEY then
 		self:SetMoney(data);
 	elseif data.slotType == Def.SLOT_TYPE_OVERFLOW then
@@ -458,6 +460,15 @@ function ItemFrameMixin:SetReputation(data)
 	end
 	self.Text:SetText(data.name);
 	self.Text:SetTextColor(0, 0.8, 1);    --The default color (0.5, 0.5, 1) is too dark so we use INFLUENCE_COLOR
+	self:Layout();
+	self:ShowGlow(false);
+end
+
+function ItemFrameMixin:SetSkill(data)
+	self:SetIcon(data.icon);
+	self:SetCount(data);
+	self.Text:SetText(string.format("%s %d/%d", data.name, data.rank, data.maxRank));
+	self.Text:SetTextColor(0.5, 0.5, 1);    --A lighter take on the chat's skill color (0.33, 0.33, 1), which is too dark here
 	self:Layout();
 	self:ShowGlow(false);
 end

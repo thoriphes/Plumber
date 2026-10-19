@@ -1034,6 +1034,30 @@ do
 		end
 	end
 
+	local function TooltipFunc_Skill(tooltip, skillID, data)
+		tooltip:SetText(data.name, 1, 0.82, 0);
+		tooltip:AddLine(string.format("%d / %d", data.rank, data.maxRank), 1, 1, 1);
+		tooltip:Show();
+	end
+
+	function LootUI.QueueDisplaySkill(skillID, name, quantity, rank, maxRank, icon)
+		if EventListeners.enabled then
+			local data = {
+				slotType = Def.SLOT_TYPE_SKILL,
+				id = skillID,
+				quality = 1,
+				quantity = quantity,
+				name = name,
+				rank = rank,
+				maxRank = maxRank,
+				icon = icon,
+				tooltipFunc = TooltipFunc_Skill,
+				slotIndex = 0,
+			};
+			LootUI.QueueDisplayLoot(data);
+		end
+	end
+
 	function LootUI.GetLootQueue()
 		return QueueFrame.lootQueue;
 	end

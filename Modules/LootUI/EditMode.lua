@@ -198,6 +198,10 @@ local function Validation_TransmogInvented()
 	return C_GameRules.IsGameRuleActive(Enum.GameRule.TransmogEnabled);
 end
 
+local function Validation_SkillInfo()
+	return C_SkillInfo ~= nil and C_SkillInfo.GetSkillLineInfo ~= nil
+end
+
 local function Tooltip_ShowReputation()
 	local tooltip = L["LootUI Option Show Reputation Tooltip"];
 	if not C_EventUtils.IsEventValid("FACTION_STANDING_CHANGED") then
@@ -282,6 +286,8 @@ local OPTIONS_SCHEMATIC = {
 
 		{type = "Divider"},
 		{type = "Checkbox", label = L["LootUI Option Show Reputation"], tooltip = Tooltip_ShowReputation, onClickFunc = nil, dbKey = "LootUI_ShowReputation", validityCheckFunc = function() return addon.IS_MODERN; end},
+		{type = "Checkbox", label = L["LootUI Option Show Skill Ups"], tooltip = L["LootUI Option Show Skill Ups Tooltip"], onClickFunc = nil, dbKey = "LootUI_ShowSkillUps", validityCheckFunc = Validation_SkillInfo},
+		{type = "Checkbox", label = L["LootUI Option Show Weapon Skill Ups"], tooltip = L["LootUI Option Show Weapon Skill Ups Tooltip"], onClickFunc = nil, dbKey = "LootUI_ShowWeaponSkillUps", validityCheckFunc = Validation_SkillInfo},
 		{type = "Checkbox", label = L["LootUI Option Show All Money"], tooltip = L["LootUI Option Show All Money Tooltip"], onClickFunc = nil, dbKey = "LootUI_ShowAllMoneyChange"},
 		{type = "Checkbox", label = L["LootUI Option Show All Currency"], tooltip = L["LootUI Option Show All Currency Tooltip"], onClickFunc = nil, dbKey = "LootUI_ShowAllCurrencyChange"},
 		{type = "Checkbox", label = L["LootUI Option Replace Default"], onClickFunc = nil, dbKey = "LootUI_ReplaceDefaultAlert", tooltip = L["LootUI Option Replace Default Tooltip"], validityCheckFunc = function() return addon.IS_RETAIL; end},

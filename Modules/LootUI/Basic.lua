@@ -19,6 +19,7 @@ LootUI.Defination = {
 	SLOT_TYPE_MONEY = 10,       --Game value is 2, but we sort it to top
 	SLOT_TYPE_OVERFLOW = 128,   --Display overflown currency
 	SLOT_TYPE_REP = 9,          --Custom Value
+	SLOT_TYPE_SKILL = 8,        --Custom Value
 	SLOT_TYPE_ITEM = 1,
 
 	QUEST_TYPE_NEW = 2,

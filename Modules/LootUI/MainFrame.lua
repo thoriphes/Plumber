@@ -528,6 +528,13 @@ do
 						d1.quantity = d1.quantity + d2.quantity;
 						return true
 					end
+				elseif d1.slotType == Def.SLOT_TYPE_SKILL then
+					if d1.id == d2.id then
+						d1.quantity = d1.quantity + d2.quantity;
+						d1.rank = d2.rank;
+						d1.maxRank = d2.maxRank;
+						return true
+					end
 				else
 					if (d1.id == d2.id) and (not d1.mergedData) and (not d2.mergedData) then
 						if (d1.quantity == d2.quantity) and (d1.toast ~= d2.toast) then
