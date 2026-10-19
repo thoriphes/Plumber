@@ -112,6 +112,23 @@ function EL:ReadSkillLines()
 			lines[skillID] = GetSkillLineInfoByID(skillID);
 		end
 	end
+
+	-- WoW Forever lists each profession twice: the classic line (393 Skinning) and a child line with the same
+	-- name (2947 Skinning) that rises with it. Keep the lowest ID per name.
+	local idByName = {};
+	for skillID, info in pairs(lines) do
+		local name = info.name;
+		if Secret_CanAccess(name) then
+			local otherID = idByName[name];
+			if otherID then
+				lines[math.max(otherID, skillID)] = nil;
+				idByName[name] = math.min(otherID, skillID);
+			else
+				idByName[name] = skillID;
+			end
+		end
+	end
+
 	return lines
 end
 
