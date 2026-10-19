@@ -1163,6 +1163,14 @@ stds.wow = {
 			},
 		},
 
+		C_SkillInfo = {
+			fields = {
+				"GetNumSkillLines",
+				"GetSkillLineInfo",
+				"GetSkillLineInfoByID",
+			},
+		},
+
 		C_SpecializationInfo = {
 			fields = {
 				"GetSpecialization",
