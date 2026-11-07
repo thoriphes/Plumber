@@ -46,6 +46,7 @@ L["Always On Module"] = "This module is always enabled.";
 L["Return To Module List"] = "Return to List";
 L["Generic Addon Conflict"] = "This module might be incompatible with addons of similar functionalities:"; -- Addon names are shown as new lines. Support showing multiple names.
 L["Addon Conflict Format"] = "This module might be incompatible with %s."; -- Show one addon name. Used in changelogs.
+L["Module Disabled Due To Addon Conflict"] = "This module is disabled because \"%s\" has similar features.";
 L["Work In Progress Tag"] = "[WIP]";
 L["Colon With Space"] = ": ";
 L["Disabled Module Requires Reload Format"] = "You must %s to apply the changes.";	--We'll replace %s with a clickable "reload the UI"
@@ -672,10 +673,12 @@ L["Drawer Option Hide Unusable Tooltip"] = "Hide unowned items and unlearned spe
 L["Drawer Option Hide Unusable Tooltip 2"] = "Consumable items like potions will always be shown."
 L["Drawer Option Update Frequently"] = "Update Frequently";
 L["Drawer Option Update Frequently Tooltip"] = "Attempt to update the button states whenever there is a change in your bags or spellbooks. Enabling this option may slightly increase resource usage.";
+L["Drawer Error Attempt Adding Plumber Macro"] = "Cannot add a Plumber macro into the drawer.";
 L["ModuleName DrawerMacro"] = "Drawer Macro";
 L["ModuleDescription DrawerMacro"] = "Create a custom flyout menu to manage your items, spells, pets, mounts, toys.\n\nTo make a Drawer Macro, create a new macro first, then enter |cffd7c0a3#plumber:drawer|r in the command editbox.";
 L["No Slot For New Character Macro Alert"] = "You need to have a spare Character Specific Macro slot to complete this action.";
 L["Unknown Pet"] = "Unknown Pet";
+L["Unknown Macro"] = "Unknown Macro";
 
 
 --New Expansion Landing Page
@@ -764,6 +767,23 @@ L["Inactive Currencies Tooltip"] = "These currencies are hidden because you have
 L["New Quest"] = "New Quest";
 L["Trait Points Available"] = "Points Available";
 L["Unspent Points"] = "Unspent Points";
+L["Manage Activities"] = "Manage Activities";
+L["Manage Activities Abbr"] = "Manage";
+L["Manage Activities Tooltip"] = "Choose entries to ignore.\n\nThe settings are shared across your characters.";
+L["Total Ignored Tooltip Format"] = "%d |4entry is:entries are; ignored.";
+L["Save And Exit"] = "Save and Exit";
+L["Activity Shown Condition Generic"] = "This entry only becomes visible if certain conditions are met.";
+L["Activity Shown Condition ShownIfActive"] = "This entry only becomes visible if the quest is active.";
+L["Activity Shown Condition ShownIfOnQuest"] = "This entry only becomes visible if you are on the quest.";
+L["Click To Ignore Activity"] = "Click to ignore";
+L["Click To Enable Activity"] = "Click to enable";
+L["Click To Mark As Deleted"] = "Mark as Deleted";
+L["Click To Cancel Deletion"] = "Cancel Deletion";
+L["Currency Button Layout 1"] = "Name and Icon";
+L["Currency Button Layout 2"] = "Icon Only";
+L["Edit Resource List"] = "Edit";
+L["Resource Shown Condition Generic"] = "This entry only becomes visible if certain conditions are met.";
+L["Resource Shown Condition ShownIfOwned"] = "This entry only becomes visible if you have any.";
 
 
 --ExpansionSummaryMinimapButton

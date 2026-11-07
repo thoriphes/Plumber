@@ -35,13 +35,8 @@ local DelvesBonusRepQuestFlags = {
 
 local Seasonal = {
 	DelveWeeklyQuestID = 93784,
-	DelveBountyItemID = 252415,
+	DelveBountyItemID = 274374,
 };
-
-if addon.IS_12_1_0 then
-	--Seasonal.DelveWeeklyQuestID = 0; -- Unchanged
-	Seasonal.DelveBountyItemID = 274374;
-end
 
 
 local GildedStashTracker = {};
@@ -134,7 +129,7 @@ do
 		local info = C_CurrencyInfo.GetCurrencyInfo(3142);
 		if info then
 			local delta = info.maxQuantity - info.quantity;
-			listButton.Name:SetText(string.format("%s/%s %s", DelvesWarbandCap:GetNumEarned(true), DelvesWarbandCap.weeklyCap, L["Delves Completion Reward Cap"]));
+			listButton.Name:SetText(string.format("%s/%s %s", DelvesWarbandCap:GetNumEarned(true) or 0, DelvesWarbandCap.weeklyCap, L["Delves Completion Reward Cap"]));
 			listButton.Icon:SetTexCoord(0, 1, 0, 1);
 			if delta > 0 then
 				listButton.Icon:SetTexture("Interface/AddOns/Plumber/Art/ExpansionLandingPage/Icons/WarbandBonfire.png");
@@ -464,24 +459,17 @@ local ActivityData = {
 			{name = "A Gnawing Void of Curiosity", questID = Seasonal.DelveWeeklyQuestID, isWeeklyQuest = true, accountwide = true},
 			{name = "Trovehunter\'s Bounty", itemID = Seasonal.DelveBountyItemID, flagQuest = 86371, icon = 1064187, tooltipItem = Seasonal.DelveBountyItemID},
 			{name = "Coffer Key Shard", currencyID = 3310, icon = 133016, removeIconBorder = true},
-			{name = "Bonus Renowns", label = L["Bountiful Delves Rep Label"], icon = 3726261, tooltipSetter = SetupFuncs.WeeklyBonusRenown, children = DelvesBonusRepQuestFlags},
-			{name = "Gilded Stash", icon = 5872049, removeIconBorder = true, setupFunc = SetupFuncs.GildedStashEntry, tooltipSetter = SetupFuncs.GildedStashTooltip, conditions = GildedStashTracker},
-			{name = "Completion Rewards Cap", icon = 5872049, removeIconBorder = true, setupFunc = DelvesWarbandCap.SetupButton, tooltipSetter = DelvesWarbandCap.SetupTooltip, conditions = DelvesWarbandCap},
-
-			--{name = "Coffer Keys", label = L["Restored Coffer Key"], questClassification = 5, tooltipSetter = ActivityUtil.TooltipFuncs.WeeklyRestoredCofferKey, icon = 4622270, removeIconBorder = true,
-			--    children = ActivityUtil.CreateChildrenFromQuestList(addon.WeeklyRewardsConstant.CofferKeyFlags),
-			--},
-
-			--{name = "Coffer Key Shards", label = L["Coffer Key Shard"], questClassification = 5, tooltipSetter = ActivityUtil.TooltipFuncs.WeeklyCofferKeyShard, icon = 133016, removeIconBorder = true,
-			--    children = ActivityUtil.CreateChildrenFromQuestList(addon.WeeklyRewardsConstant.CofferKeyShardFlags),
-			--},
+			{name = "Bonus Renowns", label = L["Bountiful Delves Rep Label"], icon = 3726261, tooltipSetter = SetupFuncs.WeeklyBonusRenown, children = DelvesBonusRepQuestFlags, uidLookup = "MID_DelveRep"},
+			{name = "Gilded Stash", icon = 5872049, removeIconBorder = true, setupFunc = SetupFuncs.GildedStashEntry, tooltipSetter = SetupFuncs.GildedStashTooltip, conditions = GildedStashTracker, uidLookup = "MID_DelveStash"},
+			{name = "Tormented Soul", itemID = 276548, flagQuest = 97628, icon = 236300, tooltipItem = 276548}, -- Auto-fill Nightmare Hunt progress & extra Hero chest
+			{name = "Completion Rewards Cap", icon = 5872049, removeIconBorder = true, setupFunc = DelvesWarbandCap.SetupButton, tooltipSetter = DelvesWarbandCap.SetupTooltip, conditions = DelvesWarbandCap, uidLookup = "MID_DelveRewardCap"},
 		},
 	},
 
 	{isHeader = true, name = "Prey", localizedName = L["Prey System"], categoryID = 120000, nameGetter = SetupFuncs.GetPreyHeader,
 		entries = {
-			{name = "Kill Count", icon = "Interface/AddOns/Plumber/Art/ExpansionLandingPage/Icons/Checklist.png", sortToTop = true, setupFunc = SetupFuncs.KillCount, tooltipHeader = L["Defeated Prey"], tooltipSetter = SetupFuncs.DefeatedPreyTooltip},
-			{name = "Hunt Table", icon = "Interface/AddOns/Plumber/Art/ExpansionLandingPage/Icons/InProgressPrey.png", sortToTop = true, setupFunc = SetupFuncs.HuntTable, removeSharedPrefix = true},
+			{name = "Kill Count", icon = "Interface/AddOns/Plumber/Art/ExpansionLandingPage/Icons/Checklist.png", sortToTop = true, setupFunc = SetupFuncs.KillCount, tooltipHeader = L["Defeated Prey"], tooltipSetter = SetupFuncs.DefeatedPreyTooltip, uidLookup = "MID_PreyKills"},
+			{name = "Hunt Table", icon = "Interface/AddOns/Plumber/Art/ExpansionLandingPage/Icons/InProgressPrey.png", sortToTop = true, setupFunc = SetupFuncs.HuntTable, removeSharedPrefix = true, uidLookup = "MID_PreyTable"},
 		},
 	},
 
@@ -506,7 +494,7 @@ local ActivityData = {
 	{isHeader = true, name = "Silvermoon Court", factionID = 2710, categoryID = 2710, uiMapID = 2395,
 		entries = {
 			{name = "Favor of the Court", questID = 89289, isWeeklyQuest = true, uiMapID = 2395, sortToTop = true},
-			{name = L["QuestName Runestone"], localizedName = L["QuestName Runestone"], isWeeklyQuest = true, uiMapID = 2395, sortToTop = true, useActiveQuestTitle = true,
+			{name = L["QuestName Runestone"], localizedName = L["QuestName Runestone"], isWeeklyQuest = true, uiMapID = 2395, sortToTop = true, useActiveQuestTitle = true, uidLookup = "MID_Runestones",
 				questPool = {
 					{name = "Fortify the Runestones: Magisters", questID = 90573, isWeeklyQuest = true, uiMapID = 2395},
 					{name = "Fortify the Runestones: Blood Knights", questID = 90574, isWeeklyQuest = true, uiMapID = 2395},
@@ -523,7 +511,7 @@ local ActivityData = {
 	{isHeader = true, name = "Amani Tribe", factionID = 2696, categoryID = 2696, uiMapID = 2437,
 		entries = {
 			{name = "Abundant Offerings", questID = 89507, isWeeklyQuest = true, sortToTop = true},
-			{name = "Abundance", icon = "Interface/AddOns/Plumber/Art/ExpansionLandingPage/Icons/Abundance.png", shouldShow = SetupFuncs.ShouldShowAbundance, setupFunc = SetupFuncs.AbundanceEvent, tooltipSetter = SetupFuncs.AbundanceTooltip},
+			{name = "Abundance", icon = "Interface/AddOns/Plumber/Art/ExpansionLandingPage/Icons/Abundance.png", shouldShow = SetupFuncs.ShouldShowAbundance, setupFunc = SetupFuncs.AbundanceEvent, tooltipSetter = SetupFuncs.AbundanceTooltip, uidLookup = "MID_Abundance"},
 			{name = "Cragpine", questID = 92123, uiMapID = 2437, shownIfActive = true, isBoss = true},
 		},
 	},
@@ -590,6 +578,7 @@ local function GetActivityEntries(categoryID)
 end
 
 do  --Add Prey Quests
+	--[[
 	local PreyWorldQuests = {
 		--C_QuestLine.GetQuestLineQuests(5954)
 		91458,
@@ -618,6 +607,7 @@ do  --Add Prey Quests
 			removeSharedPrefix = true,
 		};
 	end
+	--]]
 
 	SetupFuncs.BuildPreyTargetQuests();
 end

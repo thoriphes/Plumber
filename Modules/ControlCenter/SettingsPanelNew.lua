@@ -679,6 +679,9 @@ do
 	end
 
 	function EntryButtonMixin:UpdateState()
+		-- "disabled" means the button is not clickable
+		-- "overrideState" determines if the checkmark should be shown
+
 		local overrideState;
 		if self.data.getOverrideState then
 			---overrideState: true (Always On) | false (Always OFF) | nil (No Override)
@@ -698,10 +701,10 @@ do
 		end
 
 		if overrideState == false then
-			disabled = false;
+			disabled = true;
 		end
 
-		if GetDBBool(self.dbKey) then
+		if GetDBBool(self.dbKey) and overrideState ~= false then
 			if disabled then
 				SetTexCoord(self.Box, 784, 832, 64, 112);
 			else
@@ -1644,6 +1647,7 @@ do  --ChangelogTab
 		local content = {};
 		local objectHeight;
 		local postfixNewFeature = " ("..L["New Feature Abbr"]..")";
+		local maxImageWidth = math.floor(self.ChangelogTab.ScrollView:GetWidth() - 2 * leftOffset - 12); -- account for the slider
 
 		for i, info in ipairs(changelog) do
 			top = offsetY;
@@ -1852,6 +1856,10 @@ do  --ChangelogTab
 						t = 0;
 						b = (info.imageBottom and info.imageBottom / info.canvasHeight) or 1;
 						width = height / info.canvasHeight * info.imageRight;
+						if width > maxImageWidth then
+							width = maxImageWidth;
+							height = width * info.canvasHeight / info.imageRight;
+						end
 					else
 						l, r, t, b = 0, 1, 0, 1;
 					end

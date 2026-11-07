@@ -13,11 +13,7 @@ local EJ_GetEncounterInfoByIndex = EJ_GetEncounterInfoByIndex;
 
 local SHOW_LOOT = true;    --Boss achievements and loot
 
-local JournalInstanceIDs = {
-	1302,   --Manaforge Omega
-	1296,   --Liberation of Undermine
-	1273,   --Nerub-ar Palace
-};
+local JournalInstanceIDs = {};
 
 if addon.IS_MISTS then
 	JournalInstanceIDs = {
@@ -1116,7 +1112,7 @@ do
 
 			if showEntry then
 				n = n + 1;
-				local isOdd = n % 2 == 0;
+				local isOdd = n % 2 == 1;
 				top = offsetY;
 				bottom = offsetY + buttonHeight + gap;
 				content[n] = {

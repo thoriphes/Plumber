@@ -46,6 +46,7 @@ L["Always On Module"] = "此模块将被一直启用。";
 L["Return To Module List"] = "返回模块列表";
 L["Generic Addon Conflict"] = "此模块可能与以下功能类似的插件不兼容：";
 L["Addon Conflict Format"] = "此模块可能与 %s 不兼容。";
+L["Module Disabled Due To Addon Conflict"] = "由于“%s”提供类似功能，此模块已被禁用。";
 L["Work In Progress Tag"] = "[施工中]";
 L["Colon With Space"] = "：";
 L["Disabled Module Requires Reload Format"] = "你必须%s才能使改变生效。";	--We'll replace %s with a clickable "reload the UI"
@@ -672,10 +673,12 @@ L["Drawer Option Hide Unusable Tooltip"] = "隐藏身上没有的物品和未学
 L["Drawer Option Hide Unusable Tooltip 2"] = "消耗品例如药水不受此选项影响。"
 L["Drawer Option Update Frequently"] = "频繁更新";
 L["Drawer Option Update Frequently Tooltip"] = "在你背包或法术书发生变化时更新所有收纳宏。启用此选项可能会略微增加运算量。";
+L["Drawer Error Attempt Adding Plumber Macro"] = "不能在收纳宏内加入其他Plumber宏。";
 L["ModuleName DrawerMacro"] = "技能收纳宏";
 L["ModuleDescription DrawerMacro"] = "创建自定义弹出菜单来整理你的物品、法术、宠物、坐骑、玩具。\n\n要创建技能收纳宏, 请先创建一个新宏，然后在宏编辑框中输入 |cffd7c0a3#plumber:drawer|r";
 L["No Slot For New Character Macro Alert"] = "需要一个空的角色专用宏栏位来完成此操作。";
 L["Unknown Pet"] = "未知小宠物";
+L["Unknown Macro"] = "未知宏";
 
 
 --New Expansion Landing Page
@@ -733,6 +736,23 @@ L["Inactive Currencies Tooltip"] = "以下货币因为被你设为“未使用�
 L["New Quest"] = "新任务";
 L["Trait Points Available"] = "可分配点数";
 L["Unspent Points"] = "你有待分配的点数";
+L["Manage Activities"] = "管理活动";
+L["Manage Activities Abbr"] = "管理活动";
+L["Manage Activities Tooltip"] = "显示或隐藏条目。\n\n所有角色将共享此设置。";
+L["Total Ignored Tooltip Format"] = "%d个条目已被隐藏。";
+L["Save And Exit"] = "保存并退出";
+L["Activity Shown Condition Generic"] = "此条目仅在特定条件下显示。";
+L["Activity Shown Condition ShownIfActive"] = "此条目仅在任务激活时显示。";
+L["Activity Shown Condition ShownIfOnQuest"] = "此条目仅在你已接受任务后显示。";
+L["Click To Ignore Activity"] = "点击以隐藏";
+L["Click To Enable Activity"] = "点击以启用";
+L["Click To Mark As Deleted"] = "设为待删除";
+L["Click To Cancel Deletion"] = "取消删除";
+L["Currency Button Layout 1"] = "名称和图标";
+L["Currency Button Layout 2"] = "仅图标";
+L["Edit Resource List"] = "编辑";
+L["Resource Shown Condition Generic"] = "此条目仅在特定条件下显示。";
+L["Resource Shown Condition ShownIfOwned"] = "此条目仅在你持有数量大于零时显示。";
 
 
 --ExpansionSummaryMinimapButton

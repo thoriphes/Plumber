@@ -1,5 +1,5 @@
 ## Interface: 120107, 120105, 50504, 20506, 11509, 16001
-## Version: 1.9.6 d
+## Version: 1.9.7 c
 
 ## Title: Plumber
 
@@ -16,6 +16,8 @@
 ## X-GameType: Camelot [AllowLoadGameType camelot]
 ## X-GameType: Standard [AllowLoadGameType standard]
 ## X-GameType: Mists [AllowLoadGameType mists]
+## X-GameType: TBC [AllowLoadGameType tbc]
+## X-GameType: Vanilla [AllowLoadGameType vanilla]
 
 
 Initialization.lua
@@ -30,7 +32,7 @@ Modules\SkillTracker.lua [AllowLoadGameType camelot]
 #Modules\DirectionArrow.lua [AllowLoadGameType standard]
 #Modules\SuperTrack.xml [AllowLoadGameType standard]
 
-#Modules\DevTool.lua [AllowLoadGameType standard]
+#Modules\DevTool.lua [AllowLoadGameType standard, camelot]
 #Modules\DevTool_HyperlinkEditor.lua [AllowLoadGameType standard]
 
 Modules\ControlCenter\ControlCenter.xml
@@ -79,7 +81,7 @@ Modules\PlayerTitleUI.lua [AllowLoadGameType standard]
 Modules\BlizzardSuperTrack.lua [AllowLoadGameType standard]
 Modules\ItemUpgradeUI.xml [AllowLoadGameType standard]
 Modules\ProfessionsBook.lua [AllowLoadGameType standard]
-Modules\HolidayDungeon.lua [AllowLoadGameType standard]
+Modules\HolidayDungeon.lua [AllowLoadGameType standard, mists]
 Modules\QueueStatus.lua [AllowLoadGameType standard]
 Modules\RaidCheck\RaidCheck.xml [AllowLoadGameType standard]
 Modules\TransmogUtil.lua [AllowLoadGameType standard, mists, camelot]
