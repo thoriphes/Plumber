@@ -1,5 +1,9 @@
-local VERSION_TEXT = "1.9.7 c";
-local VERSION_DATE = 1792900000;
+local VERSION_TEXT = "1.9.7 d";
+local VERSION_DATE = 1794200000;
+
+-- If "AutoShowChangelog" is enabled: The following dates determine if the changelog should auto open
+local RETAIL_CHANGELOG_DATE = 1794200000;
+local FOREVER_CHANGELOG_DATE = 1794200000;
 
 
 local addonName, addon = ...
@@ -231,6 +235,8 @@ local DefaultValues = {
 	PreyQuestSuperTrack = true,			--During the final stage, clicking the Prey widget also super track the target location.
 	TransmogRaestorePending = true,		--Restore unsaved transmog changes
 		TransmogRaestorePending_AlwaysMoveChanges = false,
+	PetHappiness = true,				--Forever Only: Click PetFrameHappiness to show food buttons
+
 
 	--Tooltip
 	TooltipChestKeys = true,            --Show keys that unlocked the current chest or door
@@ -450,12 +456,13 @@ local function LoadDatabase()
 		DB.installTime = VERSION_DATE;
 	end
 
+	local changelogDate = addon.IS_FOREVER and FOREVER_CHANGELOG_DATE or RETAIL_CHANGELOG_DATE;
 	if DB.lastVersionTime then
-		if (VERSION_DATE - 1 > DB.lastVersionTime) and DB.SettingsPanel_AutoShowChangelog then
+		if (changelogDate - 1 > DB.lastVersionTime) and DB.SettingsPanel_AutoShowChangelog then
 			CallbackRegistry:Trigger("ShowChangelog");
 		end
 	end
-	DB.lastVersionTime = VERSION_DATE;
+	DB.lastVersionTime = changelogDate;
 
 	DefaultValues = nil;
 

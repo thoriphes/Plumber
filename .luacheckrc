@@ -127,6 +127,7 @@ stds.wow = {
 		"BossBanner_OnEvent",
 		"BreakUpLargeNumbers",
 		"CalculateTotalNumberOfFreeBagSlots",
+		"canaccessallvalues",
 		"canaccessvalue",
 		"CastSpell",
 		"CharacterFrame",
@@ -411,6 +412,7 @@ stds.wow = {
 		"PaperDollFrame",
 		"PaperDollItemsFrame",
 		"PaperDollTitlesPane_InitButton",
+		"PetFrameHappiness",
 		"PickupContainerItem",
 		"PickupInventoryItem",
 		"PickupMacro",
@@ -1020,6 +1022,14 @@ stds.wow = {
 			},
 		},
 
+		C_PetInfo = {
+			fields = {
+				"CanPetEatItem",
+				"GetPetFoodTypes",
+				"GetPetHappiness",
+			},
+		},
+
 		C_PetJournal = {
 			fields = {
 				"FindPetIDByName",
@@ -1149,6 +1159,7 @@ stds.wow = {
 		C_Secrets = {
 			fields = {
 				"ShouldAurasBeSecret",
+				"ShouldUnitStatsBeSecret",
 			},
 		},
 
@@ -1191,6 +1202,7 @@ stds.wow = {
 				"GetSpellName",
 				"GetSpellTexture",
 				"IsSpellDataCached",
+				"IsSpellUsable",
 				"PickupSpell",
 				"RequestLoadSpellData",
 			},
@@ -1243,6 +1255,7 @@ stds.wow = {
 		C_Timer = {
 			fields = {
 				"After",
+				"NewTimer",
 			},
 		},
 
@@ -1913,6 +1926,7 @@ stds.wow = {
 		"FACTION_ALLIANCE",
 		"FACTION_HORDE",
 		"FILTER",
+		"GAINING_LOYALTY",
 		"GAME_VERSION_LABEL",
 		"GARRISON_LANDING_PAGE_TITLE",
 		"GARRISON_MISSION_IN_PROGRESS_TOOLTIP",
@@ -1949,6 +1963,7 @@ stds.wow = {
 		"LFG_LIST_DIFFICULTY",
 		"LOCKED",
 		"LOOT_NOUN",
+		"LOSING_LOYALTY",
 		"MACRO",
 		"MAJOR_FACTION_BUTTON_FACTION_LOCKED",
 		"MAJOR_FACTION_BUTTON_RENOWN_LEVEL",
@@ -1970,6 +1985,9 @@ stds.wow = {
 		"ORDER_HALL_LANDING_PAGE_TITLE",
 		"PARAGON_REPUTATION_TOOLTIP_TEXT",
 		"PARAGON_REPUTATION_TOOLTIP_TEXT_LOW_LEVEL",
+		"PET_DAMAGE_PERCENTAGE",
+		"PET_DIET_TEMPLATE",
+		"PET_FOOD_DELIMIT",
 		"PLAYER_DIFFICULTY1",
 		"PLAYER_DIFFICULTY2",
 		"PLAYER_DIFFICULTY3",
@@ -1999,6 +2017,7 @@ stds.wow = {
 		"SOUNDKIT",
 		"SOURCES",
 		"SPEC_ACTIVE",
+		"SPELL_FAILED_NO_PET",
 		"SUMMON_RANDOM_PET",
 		"SWITCH",
 		"TALENT_BUTTON_TOOLTIP_NEXT_RANK",
