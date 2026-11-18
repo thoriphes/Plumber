@@ -481,6 +481,7 @@ stds.wow = {
 		"TransmogFrame",
 		"TransmogAndMountDressupFrame",
 		"Transmog_LoadUI",
+		"TransmogSlotOrder",
 		"TransmogUtil",
 		"UIErrorsFrame",
 		"UIParent",
@@ -1200,6 +1201,7 @@ stds.wow = {
 				"GetSpellInfo",
 				"GetSpellLink",
 				"GetSpellName",
+				"GetSpellSubtext",
 				"GetSpellTexture",
 				"IsSpellDataCached",
 				"IsSpellUsable",
@@ -1309,6 +1311,7 @@ stds.wow = {
 
 		C_Transmog = {
 			fields = {
+				"ExtractTransmogIDList",
 				"GetAllSetAppearancesByID",
 				"IsAtTransmogNPC",
 				"SetPending",
@@ -1641,6 +1644,12 @@ stds.wow = {
 					},
 				},
 
+				TransmogCollectionType = {
+					fields = {
+						"Shoulder",
+					},
+				},
+
 				TransmogOutfitDisplayType = {
 					fields = {
 						"Assigned",
@@ -1948,6 +1957,8 @@ stds.wow = {
 		"HOUSING_DECOR_STORAGE_ITEM_DESTROY",
 		"HOURS_ABBR",
 		"INVSLOT_MAINHAND",
+		"INVSLOT_OFFHAND",
+		"INVSLOT_SHOULDER",
 		"INVTYPE_HOLDABLE",
 		"IN_GAME_NAVIGATION_RANGE",
 		"ITEM_BNETACCOUNTBOUND",
